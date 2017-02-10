@@ -17,10 +17,8 @@ public class ViewPagerPhotoActivity extends Activity {
     private static PhotoView photoView;
     private List<String> list = new ArrayList<String>();
 
-
-
     SamplePagerAdapter samplePagerAdapter;
-
+    //增加注释
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
