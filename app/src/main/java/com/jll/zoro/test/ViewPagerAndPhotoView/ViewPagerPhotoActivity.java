@@ -15,7 +15,8 @@ import java.util.List;
 public class ViewPagerPhotoActivity extends Activity {
     private HackyViewPager hackyViewPager;
     private static PhotoView photoView;
-    List<String> list = new ArrayList<String>();
+    private List<String> list = new ArrayList<String>();
+
 
 
     SamplePagerAdapter samplePagerAdapter;
