@@ -17,7 +17,6 @@ public class ViewPagerPhotoActivity extends Activity {
     private HackyViewPager hackyViewPager;
     private static PhotoView photoView;
     private static ImageView imageView;
-//    private static ImageLoader imageLoader= ImageLoader.getInstance();
     List<String> list = new ArrayList<String>();
     SamplePagerAdapter samplePagerAdapter;
 
