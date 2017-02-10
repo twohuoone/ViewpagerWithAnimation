@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.jll.zoro.test.R;
+import com.zhy.magicviewpager.transformer.AlphaPageTransformer;
+import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ public class ViewPagerPhotoActivity extends Activity {
         hackyViewPager = (HackyViewPager) findViewById(R.id.HackyViewPager);
         hackyViewPager.setPageMargin(40);
         hackyViewPager.setOffscreenPageLimit(3);
+        hackyViewPager.setPageTransformer(true, new AlphaPageTransformer(new ScaleInTransformer()));
         list.add("http://img4q.duitang.com/uploads/item/201408/11/20140811141753_iNtAF.jpeg");
         list.add("http://imgsrc.baidu.com/forum/pic/item/8b82b9014a90f603fa18d50f3912b31bb151edca.jpg");
         list.add("http://imgsrc.baidu.com/forum/pic/item/8e230cf3d7ca7bcb3acde5a2be096b63f724a8b2.jpg");

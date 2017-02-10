@@ -33,4 +33,5 @@ dependencies {
     compile 'com.facebook.fresco:animated-webp:0.14.1'
     compile 'com.facebook.fresco:imagepipeline-okhttp3:0.14.1'
     testCompile 'junit:junit:4.12'
+    compile project(path: ':library')
 }
