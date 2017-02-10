@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.jll.zoro.test.R;
@@ -16,7 +15,6 @@ import java.util.List;
 public class ViewPagerPhotoActivity extends Activity {
     private HackyViewPager hackyViewPager;
     private static PhotoView photoView;
-    private static ImageView imageView;
     List<String> list = new ArrayList<String>();
 
 
