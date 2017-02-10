@@ -18,6 +18,8 @@ public class ViewPagerPhotoActivity extends Activity {
     private static PhotoView photoView;
     private static ImageView imageView;
     List<String> list = new ArrayList<String>();
+
+    
     SamplePagerAdapter samplePagerAdapter;
 
     @Override
