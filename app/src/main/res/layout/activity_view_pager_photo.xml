@@ -4,7 +4,7 @@
     android:id="@+id/activity_view_pager_photo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:clipChildren="false">
     <com.jll.zoro.test.ViewPagerAndPhotoView.HackyViewPager
         android:id="@+id/HackyViewPager"

@@ -1,7 +1,9 @@
 package com.jll.zoro.test.ViewPagerAndPhotoView;
 
+import android.Manifest;
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +16,27 @@ import com.zhy.magicviewpager.transformer.ScaleInTransformer;
 import java.util.ArrayList;
 import java.util.List;
 
+import permissions.dispatcher.NeedsPermission;
+import permissions.dispatcher.OnNeverAskAgain;
+import permissions.dispatcher.OnPermissionDenied;
+import permissions.dispatcher.OnShowRationale;
+import permissions.dispatcher.PermissionRequest;
+import permissions.dispatcher.RuntimePermissions;
+
+@RuntimePermissions
 public class ViewPagerPhotoActivity extends Activity {
     private HackyViewPager hackyViewPager;
     private static PhotoView photoView;
     private List<String> list = new ArrayList<String>();
 
     SamplePagerAdapter samplePagerAdapter;
+    private String permission = "android.permission.READ_CALENDAR";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_pager_photo);
         Fresco.initialize(this);
+        ViewPagerPhotoActivityPermissionsDispatcher.NeedWithCheck(this,permission);
         hackyViewPager = (HackyViewPager) findViewById(R.id.HackyViewPager);
         hackyViewPager.setPageMargin(40);
         hackyViewPager.setOffscreenPageLimit(3);
@@ -48,6 +60,30 @@ public class ViewPagerPhotoActivity extends Activity {
         hackyViewPager.setAdapter(samplePagerAdapter);
         hackyViewPager.setCurrentItem(1);
     }
+
+    @NeedsPermission({Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE})
+    void Need(String permission) {
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        ViewPagerPhotoActivityPermissionsDispatcher.onRequestPermissionsResult(this, requestCode, grantResults,permission);
+    }
+
+    @OnShowRationale({Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE})
+    void Show(final PermissionRequest request) {
+    }
+
+    @OnPermissionDenied({Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE})
+    void Denied() {
+    }
+
+    @OnNeverAskAgain({Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE})
+    void NeverAsk() {
+    }
+
 
     class SamplePagerAdapter extends PagerAdapter {
 
